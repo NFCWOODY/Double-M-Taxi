@@ -1,188 +1,300 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <!-- Apparence iPhone -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#f5f5f7">
 
   <title>Double M Taxi</title>
 
   <style>
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f2ee;
-      color: #111;
-      display: flex;
-      justify-content: center;
-      padding: 24px 14px;
+      background:
+        radial-gradient(circle at top, #ffffff 0%, #f5f5f7 55%, #eeeeef 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                   "SF Pro Text", Arial, sans-serif;
+      color: #1d1d1f;
     }
 
-    .page {
+    .app {
       width: 100%;
-      max-width: 430px;
-      background: #fff;
-      border-radius: 28px;
-      padding: 34px 22px 28px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      max-width: 480px;
+      margin: auto;
+      min-height: 100vh;
+      padding:
+        calc(30px + env(safe-area-inset-top))
+        20px
+        calc(30px + env(safe-area-inset-bottom));
     }
 
-    .logo {
-      display: block;
-      width: 82%;
+    /* ---------- HEADER ---------- */
+
+    .header {
+      text-align: center;
+      padding-top: 15px;
+      padding-bottom: 25px;
+    }
+
+    .logo-box {
+      width: 100%;
       max-width: 330px;
-      margin: 10px auto 26px;
+      height: 150px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     h1 {
       margin: 0;
-      text-align: center;
       font-size: 34px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+      line-height: 1.05;
+      font-weight: 750;
+      letter-spacing: -1px;
     }
 
     .subtitle {
-      text-align: center;
-      color: #6f6f6f;
-      font-size: 18px;
-      margin-top: 10px;
-      margin-bottom: 16px;
+      margin-top: 9px;
+      font-size: 17px;
+      color: #86868b;
     }
 
-    .accent {
-      width: 38px;
-      height: 4px;
-      border-radius: 99px;
-      background: #c7a46a;
-      margin: 0 auto 28px;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 7px 12px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(0,0,0,.05);
+      border-radius: 999px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.04);
+      font-size: 13px;
+      color: #646469;
     }
 
-    .action {
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #34c759;
+      border-radius: 50%;
+    }
+
+    /* ---------- AJOUT CONTACT ---------- */
+
+    .save-contact {
       display: flex;
       align-items: center;
-      gap: 16px;
       width: 100%;
-      padding: 18px 16px;
-      margin: 14px 0;
-      border-radius: 24px;
-      text-decoration: none;
-      color: #111;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .action:active {
-      transform: scale(0.985);
-    }
-
-    .action.medical {
-      background: #151515;
+      background: #1d1d1f;
       color: white;
+      padding: 18px;
+      border-radius: 22px;
+      text-decoration: none;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.16);
+      transition: transform .15s ease;
     }
 
-    .action.classic {
-      background: #f3e8da;
+    .save-contact:active {
+      transform: scale(.975);
     }
 
-    .action.pagesjaunes {
-      background: #ffd500;
-    }
-
-    .action.contact {
+    .save-icon {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
       background: white;
-      border: 1px solid #f0f0f0;
-    }
-
-    .icon-wrap {
-      flex: 0 0 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: white;
+      color: #111;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      margin-right: 15px;
     }
 
-    .medical .icon-wrap {
+    .save-icon svg {
+      width: 27px;
+      height: 27px;
+    }
+
+    .save-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .save-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .save-subtitle {
+      font-size: 14px;
+      color: #b8b8bd;
+      margin-top: 3px;
+    }
+
+    .arrow {
+      font-size: 28px;
+      font-weight: 300;
+      opacity: .7;
+    }
+
+    /* ---------- SECTION ---------- */
+
+    .section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      font-weight: 600;
+      color: #8e8e93;
+      margin: 0 8px 9px;
+    }
+
+    .group {
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.04);
+      box-shadow: 0 7px 25px rgba(0,0,0,.055);
+      margin-bottom: 24px;
+    }
+
+    .row {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      padding: 13px 16px;
+      text-decoration: none;
+      color: #1d1d1f;
+      position: relative;
+      transition: background .15s ease, transform .15s ease;
+    }
+
+    .row + .row::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 82px;
+      right: 0;
+      height: 1px;
+      background: #e5e5e7;
+    }
+
+    .row:active {
+      background: #eeeeef;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+    }
+
+    .icon svg {
+      width: 25px;
+      height: 25px;
+    }
+
+    .medical-icon {
+      background: #111;
+      color: white;
+    }
+
+    .taxi-icon {
+      background: #eadfce;
       color: #111;
     }
 
-    .content {
+    .pages-icon {
+      background: #ffd60a;
+      color: #111;
+    }
+
+    .info {
       flex: 1;
       min-width: 0;
     }
 
-    .title {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 3px;
+    .name {
+      font-size: 17px;
+      font-weight: 650;
+      margin-bottom: 4px;
     }
 
-    .detail {
-      font-size: 16px;
-      opacity: 0.86;
+    .value {
+      font-size: 15px;
+      color: #8e8e93;
     }
 
-    .right {
-      flex: 0 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 24px;
+    .chevron {
+      font-size: 27px;
+      color: #c6c6c8;
+      margin-left: 10px;
     }
+
+    /* ---------- BOUTON PAGES JAUNES ---------- */
+
+    .yellow {
+      background: #ffd60a;
+    }
+
+    .yellow .value {
+      color: rgba(0,0,0,.58);
+    }
+
+    .yellow:active {
+      background: #efc900;
+    }
+
+    /* ---------- FOOTER ---------- */
 
     .footer {
-      margin-top: 34px;
-      padding-top: 22px;
-      border-top: 1px solid #e3e3e3;
       text-align: center;
+      color: #a1a1a6;
+      font-size: 12px;
+      padding: 8px 0 10px;
     }
 
-    .footer-icon {
-      font-size: 25px;
-      margin-bottom: 5px;
+    .footer strong {
+      display: block;
+      color: #6e6e73;
+      font-size: 13px;
+      margin-bottom: 4px;
     }
 
-    .footer-name {
-      font-weight: 700;
-      font-size: 17px;
-    }
-
-    .footer-text {
-      color: #747474;
-      margin-top: 4px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 380px) {
-      .page {
-        padding-left: 16px;
-        padding-right: 16px;
+    @media (min-width: 700px) {
+      body {
+        padding: 30px 0;
       }
 
-      h1 {
-        font-size: 30px;
-      }
-
-      .title {
-        font-size: 18px;
-      }
-
-      .detail {
-        font-size: 15px;
-      }
-
-      .icon-wrap {
-        flex-basis: 52px;
-        height: 52px;
+      .app {
+        min-height: auto;
+        border-radius: 35px;
       }
     }
   </style>
@@ -190,95 +302,196 @@
 
 <body>
 
-  <main class="page">
+<div class="app">
 
-    <img
-      src="logo-double-m-taxi.png"
-      alt="Logo Double M Taxi"
-      class="logo"
-    >
+  <!-- LOGO -->
+  <header class="header">
+
+    <div class="logo-box">
+      <img
+        src="logo-double-m-taxi.png"
+        alt="Double M Taxi"
+      >
+    </div>
 
     <h1>Double M Taxi</h1>
 
     <div class="subtitle">
-      Votre taxi, à tout moment
+      Votre taxi, à tout moment.
     </div>
 
-    <div class="accent"></div>
+    <div class="badge">
+      <span class="dot"></span>
+      Contact rapide
+    </div>
 
-    <a class="action medical" href="tel:0320906364">
-      <div class="icon-wrap">✚</div>
+  </header>
 
-      <div class="content">
-        <div class="title">Taxi Médical</div>
-        <div class="detail">03 20 90 63 64</div>
+
+  <!-- AJOUTER AUX CONTACTS -->
+  <a
+    href="double-m-taxi.vcf"
+    class="save-contact"
+  >
+
+    <div class="save-icon">
+
+      <svg viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="2">
+        <circle cx="9" cy="8" r="4"/>
+        <path d="M3 21v-2a6 6 0 0 1 6-6"/>
+        <path d="M19 8v6"/>
+        <path d="M16 11h6"/>
+      </svg>
+
+    </div>
+
+    <div class="save-text">
+      <div class="save-title">
+        Ajouter aux contacts
       </div>
-
-      <div class="right">
-        <span>☎</span>
-        <span>›</span>
+      <div class="save-subtitle">
+        Enregistrer Double M Taxi
       </div>
-    </a>
+    </div>
 
-    <a class="action classic" href="tel:0763780609">
-      <div class="icon-wrap">🚕</div>
+    <div class="arrow">›</div>
 
-      <div class="content">
-        <div class="title">Taxi classique</div>
-        <div class="detail">07 63 78 06 09</div>
-      </div>
+  </a>
 
-      <div class="right">
-        <span>☎</span>
-        <span>›</span>
-      </div>
-    </a>
+
+  <!-- APPELER -->
+
+  <div class="section-title">
+    Appeler
+  </div>
+
+  <div class="group">
+
+    <!-- TAXI MÉDICAL -->
 
     <a
-      class="action pagesjaunes"
+      class="row"
+      href="tel:0320906364"
+    >
+
+      <div class="icon medical-icon">
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2">
+          <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"/>
+          <path d="M12 7v6"/>
+          <path d="M9 10h6"/>
+        </svg>
+
+      </div>
+
+      <div class="info">
+        <div class="name">
+          Taxi Médical
+        </div>
+        <div class="value">
+          03 20 90 63 64
+        </div>
+      </div>
+
+      <div class="chevron">›</div>
+
+    </a>
+
+
+    <!-- TAXI CLASSIQUE -->
+
+    <a
+      class="row"
+      href="tel:0763780609"
+    >
+
+      <div class="icon taxi-icon">
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2">
+          <path d="M5 17h14"/>
+          <path d="M6 17l-1-5 2-5h10l2 5-1 5"/>
+          <circle cx="7" cy="17" r="2"/>
+          <circle cx="17" cy="17" r="2"/>
+          <path d="M7 12h10"/>
+        </svg>
+
+      </div>
+
+      <div class="info">
+        <div class="name">
+          Taxi classique
+        </div>
+        <div class="value">
+          07 63 78 06 09
+        </div>
+      </div>
+
+      <div class="chevron">›</div>
+
+    </a>
+
+  </div>
+
+
+  <!-- INTERNET -->
+
+  <div class="section-title">
+    En ligne
+  </div>
+
+  <div class="group">
+
+    <a
+      class="row yellow"
       href="https://www.pagesjaunes.fr/pros/59138370"
       target="_blank"
       rel="noopener"
     >
-      <div class="icon-wrap">⌣</div>
 
-      <div class="content">
-        <div class="title">Voir sur PagesJaunes</div>
-        <div class="detail">Fiche professionnelle</div>
+      <div class="icon pages-icon">
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2">
+          <path d="M14 3h7v7"/>
+          <path d="M10 14L21 3"/>
+          <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/>
+        </svg>
+
       </div>
 
-      <div class="right">
-        <span>↗</span>
-        <span>›</span>
+      <div class="info">
+        <div class="name">
+          PagesJaunes
+        </div>
+        <div class="value">
+          Voir la fiche professionnelle
+        </div>
       </div>
+
+      <div class="chevron">›</div>
+
     </a>
 
-    <a
-      class="action contact"
-      href="double-m-taxi.vcf"
-      download
-    >
-      <div class="icon-wrap">👤</div>
+  </div>
 
-      <div class="content">
-        <div class="title">Ajouter aux contacts</div>
-        <div class="detail">Enregistrez nos coordonnées</div>
-      </div>
 
-      <div class="right">
-        <span>⇩</span>
-        <span>›</span>
-      </div>
-    </a>
+  <div class="footer">
+    <strong>Double M Taxi</strong>
+    Merci pour votre confiance
+  </div>
 
-    <div class="footer">
-      <div class="footer-icon">🚕</div>
-      <div class="footer-name">Double M Taxi</div>
-      <div class="footer-text">Merci pour votre confiance</div>
-    </div>
-
-  </main>
+</div>
 
 </body>
 </html>
-```
