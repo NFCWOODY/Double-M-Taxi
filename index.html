@@ -1,0 +1,284 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Double M Taxi</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f2ee;
+      color: #111;
+      display: flex;
+      justify-content: center;
+      padding: 24px 14px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 430px;
+      background: #fff;
+      border-radius: 28px;
+      padding: 34px 22px 28px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      display: block;
+      width: 82%;
+      max-width: 330px;
+      margin: 10px auto 26px;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #6f6f6f;
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 16px;
+    }
+
+    .accent {
+      width: 38px;
+      height: 4px;
+      border-radius: 99px;
+      background: #c7a46a;
+      margin: 0 auto 28px;
+    }
+
+    .action {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      padding: 18px 16px;
+      margin: 14px 0;
+      border-radius: 24px;
+      text-decoration: none;
+      color: #111;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .action:active {
+      transform: scale(0.985);
+    }
+
+    .action.medical {
+      background: #151515;
+      color: white;
+    }
+
+    .action.classic {
+      background: #f3e8da;
+    }
+
+    .action.pagesjaunes {
+      background: #ffd500;
+    }
+
+    .action.contact {
+      background: white;
+      border: 1px solid #f0f0f0;
+    }
+
+    .icon-wrap {
+      flex: 0 0 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .medical .icon-wrap {
+      color: #111;
+    }
+
+    .content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .detail {
+      font-size: 16px;
+      opacity: 0.86;
+    }
+
+    .right {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+    }
+
+    .footer {
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid #e3e3e3;
+      text-align: center;
+    }
+
+    .footer-icon {
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+
+    .footer-name {
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .footer-text {
+      color: #747474;
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 380px) {
+      .page {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .title {
+        font-size: 18px;
+      }
+
+      .detail {
+        font-size: 15px;
+      }
+
+      .icon-wrap {
+        flex-basis: 52px;
+        height: 52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <img
+      src="logo-double-m-taxi.png"
+      alt="Logo Double M Taxi"
+      class="logo"
+    >
+
+    <h1>Double M Taxi</h1>
+
+    <div class="subtitle">
+      Votre taxi, à tout moment
+    </div>
+
+    <div class="accent"></div>
+
+    <a class="action medical" href="tel:0320906364">
+      <div class="icon-wrap">✚</div>
+
+      <div class="content">
+        <div class="title">Taxi Médical</div>
+        <div class="detail">03 20 90 63 64</div>
+      </div>
+
+      <div class="right">
+        <span>☎</span>
+        <span>›</span>
+      </div>
+    </a>
+
+    <a class="action classic" href="tel:0763780609">
+      <div class="icon-wrap">🚕</div>
+
+      <div class="content">
+        <div class="title">Taxi classique</div>
+        <div class="detail">07 63 78 06 09</div>
+      </div>
+
+      <div class="right">
+        <span>☎</span>
+        <span>›</span>
+      </div>
+    </a>
+
+    <a
+      class="action pagesjaunes"
+      href="https://www.pagesjaunes.fr/pros/59138370"
+      target="_blank"
+      rel="noopener"
+    >
+      <div class="icon-wrap">⌣</div>
+
+      <div class="content">
+        <div class="title">Voir sur PagesJaunes</div>
+        <div class="detail">Fiche professionnelle</div>
+      </div>
+
+      <div class="right">
+        <span>↗</span>
+        <span>›</span>
+      </div>
+    </a>
+
+    <a
+      class="action contact"
+      href="double-m-taxi.vcf"
+      download
+    >
+      <div class="icon-wrap">👤</div>
+
+      <div class="content">
+        <div class="title">Ajouter aux contacts</div>
+        <div class="detail">Enregistrez nos coordonnées</div>
+      </div>
+
+      <div class="right">
+        <span>⇩</span>
+        <span>›</span>
+      </div>
+    </a>
+
+    <div class="footer">
+      <div class="footer-icon">🚕</div>
+      <div class="footer-name">Double M Taxi</div>
+      <div class="footer-text">Merci pour votre confiance</div>
+    </div>
+
+  </main>
+
+</body>
+</html>
+```
